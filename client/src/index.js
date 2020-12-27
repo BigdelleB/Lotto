@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Board from './Board';
-//import * as serviceWorker from './serviceWorker';
+import { Web3Provider } from 'react-web3';
 
 // import drizzle functions and contract artifact
 import { Drizzle, generateStore } from "@drizzle/store";
@@ -25,5 +24,9 @@ const options = {
 // setup the drizzle store and drizzle
 const drizzle = new Drizzle(options);
 
-//ReactDOM.render(<App drizzle={drizzle} />, document.getElementById('root'));
-ReactDOM.render(<Board drizzle={drizzle} />, document.getElementById('root'));
+ReactDOM.render(<App drizzle={drizzle} />, document.getElementById('root'));
+
+
+
+
+
