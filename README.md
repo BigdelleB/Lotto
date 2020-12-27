@@ -1,1 +1,4 @@
 # Lotto
+
+
+Read my whitepaper.
