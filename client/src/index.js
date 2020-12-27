@@ -2,17 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Web3Provider } from 'react-web3';
 
 // import drizzle functions and contract artifact
 import { Drizzle, generateStore } from "@drizzle/store";
 import Game from "./contracts/Game.json";
-import LTO from "./contracts/LTO.json";
 
 
 // let drizzle know what contracts we want and how to access our test blockchain
 const options = {
-  contracts: [Game, LTO],
+  contracts: [Game],
   web3: {
     fallback: {
       type: "ws",
