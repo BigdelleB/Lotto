@@ -36,7 +36,7 @@ contract Game {
     //the game number that the coin was born into.
     uint public game_number;
 
-    uint SEED = 1000;
+    uint SEED = 1000; //just placeholder for later, need to really think about this.
 
     //the number of tokens for the current game
     uint public total_supply;

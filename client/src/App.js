@@ -1,6 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
+import DetectLottoClick from "./DetectLottoClick";
 
 class App extends React.Component{
   state = { loading: true, drizzleState: null };
@@ -36,9 +37,7 @@ class App extends React.Component{
       </section>
       <section className="lower">
         <div className="lower_section">
-          <a href="/" className="buy_btn">
-            Buy Lotto
-          </a>
+          <DetectLottoClick/>  
           <div class="form-group">
             <input
               type="street"
