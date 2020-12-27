@@ -36,6 +36,8 @@ contract Game {
     //the game number that the coin was born into.
     uint public game_number;
 
+    uint SEED = 1000;
+
     //the number of tokens for the current game
     uint public total_supply;
 
@@ -88,6 +90,22 @@ contract Game {
     function endGame() public{
         game_number = game_number+1;
     }
+
+
+    //TODO: Decide on an end condition to this thing, im not 100% sold on having the supply reached be the limit, //people might just stop trading when it gets near.
+    //should be something more hidden. Everyhting in a contract is visible to any observer, so it needs to be a //bit more random.
+    //one option is to have the address of the buyer meet a certain condition.
+
+    function didGameEnd(address rx) public view returns(bool gameStatus){
+        uint256 addressInt = uint256(rx) %10000;
+        if(addressInt>SEED){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }
 
