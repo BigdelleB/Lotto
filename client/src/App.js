@@ -1,9 +1,32 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
 
+class App extends React.Component{
+  state = { loading: true, drizzleState: null };
 
-function App() {
-  return (
+  componentDidMount() {
+    const { drizzle } = this.props;
+
+    // subscribe to changes in the store
+    this.unsubscribe = drizzle.store.subscribe(() => {
+
+      // every time the store updates, grab the state from drizzle
+      const drizzleState = drizzle.store.getState();
+
+      // check to see if it's ready, if so, update local component state
+      if (drizzleState.drizzleStatus.initialized) {
+        this.setState({ loading: false, drizzleState });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
+  render(){
+    return (
     <div className="_container">
       <section className="upper d-flex justify-content-md-end justify-content-center">
         <div className="balance_box">
@@ -21,39 +44,14 @@ function App() {
               type="street"
               class="form-control"
               id="inputStreet"
-              placeholder="Street"
-            />
-
-            <input
-              type="city"
-              class="form-control"
-              id="inputCity"
-              placeholder="City"
-            />
-
-            <input
-              type="state"
-              class="form-control"
-              id="inputState"
-              placeholder="State"
-            />
-
-            <input
-              type="zip"
-              class="form-control"
-              id="inputZip"
-              placeholder="Zip"
-            />
+              placeholder="Address"/> 
           </div>
         </div>
       </section>
     </div>
   );
+  }
 }
 
+
 export default App;
-
-
-
-
-
