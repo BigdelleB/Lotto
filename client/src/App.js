@@ -1,7 +1,9 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import DetectLottoClick from "./DetectLottoClick";
+import DetectLottoClick from "./DetectLottoClick";/*Needs to be upper case for some reason*/
+import ReadString from "./ReadString";
+import SetString from "./SetString";
 
 class App extends React.Component{
   state = { loading: true, drizzleState: null };
@@ -27,6 +29,7 @@ class App extends React.Component{
   }
 
   render(){
+    if (this.state.loading) return "Loading Drizzle...";
     return (
     <div className="_container">
       <section className="upper d-flex justify-content-md-end justify-content-center">
@@ -38,6 +41,14 @@ class App extends React.Component{
       <section className="lower">
         <div className="lower_section">
           <DetectLottoClick/>  
+          <ReadString
+            drizzle={this.props.drizzle}
+            drizzleState={this.state.drizzleState}
+          />
+          <SetString
+            drizzle={this.props.drizzle}
+            drizzleState={this.state.drizzleState}
+          />
           <div class="form-group">
             <input
               type="street"

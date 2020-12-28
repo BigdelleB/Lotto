@@ -1,5 +1,9 @@
 import React from "react";
 
+/*
+When the Buy Lotto button is clicked, the method Game.generateTokens should be invoked
+*/
+
 function DetectLottoClick(){
 
   function ackClick(){

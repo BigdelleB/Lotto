@@ -5,7 +5,7 @@ contract SimpleStorage {
     event StorageSet(string _message);
 
     uint256 public storedData;
-    string public storedString;
+    string public storedString = "default";
 
     function set(uint256 x) public {
         storedData = x;
