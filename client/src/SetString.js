@@ -10,6 +10,7 @@ class SetString extends React.Component {
     }
   };
 
+  //when enter is pressed, the setstring function is called and drizzle is directed to keep track of the blockchain
   setValue = value => {
     const { drizzle, drizzleState } = this.props;
     const contract = drizzle.contracts.SimpleStorage;
@@ -40,7 +41,7 @@ class SetString extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" onKeyDown={this.handleKeyDown} />
+        <input type="text" onKeyDown={this.handleKeyDown} placeholder="Wallet Address" />
         <div>{this.getTxStatus()}</div>
       </div>
     );

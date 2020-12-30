@@ -3,24 +3,33 @@ pragma solidity >=0.4.21 <0.7.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
 
+
+//because of the way this game works, LTO needs to have a ton of setters vs a constructor. these setters
+//will be called in the Game contract.
 contract LTO is ERC20Burnable {
     string public name = "Lotto";
     uint256 public game_ID;
     string public symbol = "LTO";
     uint256 public decimals = 0;
-    uint256 public SUPPLY; 
+    uint256 public SUPPLY;
+    bool public ready = false; 
 
     mapping (address => uint256) public balance;
 
     address public minter; //me
 
     //the supply amount is set by the ticket contract.
-    constructor(uint256 supply, uint game_id) public {
+    constructor() public {
+    }
+
+    function makeCoin(uint256 supply, uint game_id) public{
         SUPPLY = supply;
-        _mint(msg.sender, SUPPLY);   //I own the full supply
+        _mint(msg.sender, SUPPLY);   //Game contract owns the full supply
         minter = msg.sender;
         game_ID = game_id;
+        ready = true;
     }
+
 
     function getName() public view returns(string memory){
     	return symbol;
@@ -34,7 +43,7 @@ contract LTO is ERC20Burnable {
 
 contract Game {
     //the game number that the coin was born into.
-    uint public game_number;
+    uint public game_number=0;
 
     uint SEED = 1000; //just placeholder for later, need to really think about this.
 
@@ -45,7 +54,7 @@ contract Game {
     uint public current_supply;
 
     //owner (me)
-    address public owner;
+    address public owner; //A current ganache wallet address
 
     LTO game_token;
 
@@ -53,8 +62,8 @@ contract Game {
     constructor() public{
         owner = msg.sender;
         total_supply = gen_random_supply(game_number); //generate the random total supply
-        LTO tick  = new LTO(total_supply, game_number);
-        game_token = tick;
+        game_token  = new LTO();
+        game_token.makeCoin(total_supply, game_number);
         current_supply = 0; //currently there are no tokens that have been sent out.
     }
 
@@ -81,7 +90,7 @@ contract Game {
         generateTokens(rx); //run a lotto
     }
 
-    function getToken() public returns (LTO t){
+    function getToken() public view returns (LTO t){
         return game_token;
     }
 

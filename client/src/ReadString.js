@@ -18,11 +18,11 @@ class ReadString extends React.Component {
     // get the contract state from drizzleState
     const { SimpleStorage } = this.props.drizzleState.contracts;
 
-    // using the saved `dataKey`, get the variable we're interested in
+    // user address
     const myString = SimpleStorage.storedString[this.state.dataKey];
 
     // if it exists, then we display its value
-    return <p>My stored string: {myString && myString.value}</p>;
+    return <p>My public Address is: {myString && myString.value}</p>;
   }
 }
 

@@ -14,7 +14,6 @@ contract Test_game {
 	function test_token_parameters() public returns (uint256){
 		token = game1.getToken();
 		return token.totalSupply();
-
 	}
 
 	function test_tokenTransfer() public{

@@ -395,7 +395,7 @@
                   "name": "now",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1065,
+                  "referencedDeclaration": 1191,
                   "src": "268:3:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
@@ -2178,7 +2178,7 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1065,
+                      "referencedDeclaration": 1191,
                       "type": "uint256",
                       "value": "now"
                     },
@@ -3790,12 +3790,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x60945D37375A200871302AdB6b643BB339301aed",
-      "transactionHash": "0xef8a0c080defdba4027c1921347a3f842c26d5518bf8ac60c691841ddea2ccaa"
+      "address": "0x490D9312f35E69fBC6713bA413a5f6bEE1eB57A2",
+      "transactionHash": "0xbceae0eda9868ec451e01ba5e3f0a157e487385f803118552cfc5f5a72146b6d"
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2020-12-27T21:22:59.405Z",
+  "updatedAt": "2020-12-30T00:08:10.433Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

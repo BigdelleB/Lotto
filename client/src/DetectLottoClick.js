@@ -1,7 +1,8 @@
 import React from "react";
 
 /*
-When the Buy Lotto button is clicked, the method Game.generateTokens should be invoked
+When the Buy Lotto button is clicked, a generateTokens method should be invoked that sends out 
+tokens to the address saved.
 */
 
 function DetectLottoClick(){
@@ -16,4 +17,6 @@ function DetectLottoClick(){
     </div>
     );
 }
+
+
 export default DetectLottoClick;

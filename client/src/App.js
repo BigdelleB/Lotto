@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import DetectLottoClick from "./DetectLottoClick";/*Needs to be upper case for some reason*/
+import DetectLottoClick from "./DetectLottoClick"; /*Needs to be upper case for some reason*/
 import ReadString from "./ReadString";
 import SetString from "./SetString";
 
@@ -49,13 +49,6 @@ class App extends React.Component{
             drizzle={this.props.drizzle}
             drizzleState={this.state.drizzleState}
           />
-          <div class="form-group">
-            <input
-              type="street"
-              class="form-control"
-              id="inputStreet"
-              placeholder="Address"/> 
-          </div>
         </div>
       </section>
     </div>
