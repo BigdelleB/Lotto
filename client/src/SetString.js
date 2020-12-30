@@ -13,16 +13,17 @@ class SetString extends React.Component {
   //when enter is pressed, the setstring function is called and drizzle is directed to keep track of the blockchain
   setValue = value => {
     const { drizzle, drizzleState } = this.props;
-    const contract = drizzle.contracts.SimpleStorage;
+    const contract = drizzle.contracts.Game; //we want to set the address of the gambler
 
     // let drizzle know we want to call the `set` method with `value`
-    const stackId = contract.methods["setString"].cacheSend(value, {
+    const stackId = contract.methods["setGambler"].cacheSend(value, {
       from: drizzleState.accounts[0]
     });
 
     // save the `stackId` for later reference
     this.setState({ stackId });
   };
+
 
   getTxStatus = () => {
     // get the transaction states from the drizzle state

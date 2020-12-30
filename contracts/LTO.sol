@@ -18,10 +18,11 @@ contract LTO is ERC20Burnable {
 
     address public minter; //me
 
-    //the supply amount is set by the ticket contract.
+    //due to the way solidity works, we need this to be empty, makeCoin will do the actual work of constructing
     constructor() public {
     }
 
+    //the real constructor
     function makeCoin(uint256 supply, uint game_id) public{
         SUPPLY = supply;
         _mint(msg.sender, SUPPLY);   //Game contract owns the full supply
@@ -42,6 +43,10 @@ contract LTO is ERC20Burnable {
 }
 
 contract Game {
+    //the guy who wants to buy lotto
+    address public gambler;
+
+
     //the game number that the coin was born into.
     uint public game_number=0;
 
@@ -113,6 +118,14 @@ contract Game {
         else{
             return false;
         }
+    }
+
+    
+    function setGambler(address g ) public{
+        gambler = g;
+    }
+    function getGambler() public view returns(address a){
+        return gambler;
     }
 
 
