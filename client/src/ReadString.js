@@ -7,7 +7,7 @@ class ReadString extends React.Component {
     const { drizzle } = this.props;
     const contract = drizzle.contracts.Game;
 
-    // let drizzle know we want to watch the `storedString` method
+    // let drizzle know we want to watch the `getGambler` method
     const gambler = contract.methods["getGambler"].cacheCall();
 
     // save the `dataKey` to local component state for later reference

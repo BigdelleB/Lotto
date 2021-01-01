@@ -124,8 +124,14 @@ contract Game {
     function setGambler(address g ) public{
         gambler = g;
     }
+
     function getGambler() public view returns(address a){
         return gambler;
+    }
+
+    function getBalance() public view returns(uint256 a){
+        uint256 bal = game_token.balanceOf(gambler);
+        return 50;
     }
 
 

@@ -6,7 +6,7 @@ import ReadString from "./ReadString";
 import SetString from "./SetString";
 
 class App extends React.Component{
-  state = { loading: true, drizzleState: null };
+  state = { loading: true, drizzleState: null, gamblerBalance: 100};
 
   componentDidMount() {
     const { drizzle } = this.props;
@@ -30,12 +30,13 @@ class App extends React.Component{
 
   render(){
     if (this.state.loading) return "Loading Drizzle...";
+
     return (
     <div className="_container">
       <section className="upper d-flex justify-content-md-end justify-content-center">
         <div className="balance_box">
           <span className="balance_label">Current Balance</span>
-          <span className="balance">200$</span>
+          <span className="balance"> $0</span>
         </div>
       </section>
       <section className="lower">
