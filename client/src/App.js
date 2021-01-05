@@ -4,6 +4,7 @@ import React from "react";
 import DetectLottoClick from "./DetectLottoClick"; /*Needs to be upper case for some reason*/
 import ReadString from "./ReadString";
 import SetString from "./SetString";
+import GetBalance from "./GetBalance";
 
 class App extends React.Component{
   state = { loading: true, drizzleState: null, gamblerBalance: 100};
@@ -36,7 +37,12 @@ class App extends React.Component{
       <section className="upper d-flex justify-content-md-end justify-content-center">
         <div className="balance_box">
           <span className="balance_label">Current Balance</span>
-          <span className="balance"> $0</span>
+          <span className="balance"> 
+            <GetBalance
+            drizzle={this.props.drizzle}
+            drizzleState={this.state.drizzleState}
+            />
+          </span>
         </div>
       </section>
       <section className="lower">

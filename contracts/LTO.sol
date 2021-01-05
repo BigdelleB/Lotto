@@ -129,8 +129,8 @@ contract Game {
         return gambler;
     }
 
-    function getBalance() public view returns(uint256 a){
-        uint256 bal = game_token.balanceOf(gambler);
+    function getBalance(address g) public view returns(uint256 a){
+        uint256 bal = game_token.balanceOf(g);
         return 50;
     }
 

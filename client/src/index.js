@@ -5,7 +5,7 @@ import App from './App';
 
 //import drizzle functions and contract artifact
 import { Drizzle, generateStore } from "@drizzle/store";
-import SimpleStorage from "./contracts/SimpleStorage.json"; //LTO contract is wrapped into the Game contract, i think this is ok to just import Game and it will bring all of the dependencies.
+import SimpleStorage from "./contracts/SimpleStorage.json"; 
 import Game from "./contracts/Game.json";
 import LTO from "./contracts/LTO.json";
 

@@ -24,6 +24,7 @@ class ReadString extends React.Component {
 
     // if it exists, then we display its value
     return <p>My public Address is: {myString && myString.value}</p>;
+  
   }
 }
 
