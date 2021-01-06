@@ -7,7 +7,12 @@ import SetString from "./SetString";
 import GetBalance from "./GetBalance";
 
 class App extends React.Component{
-  state = { loading: true, drizzleState: null, gamblerBalance: 100};
+  state = { loading: true, drizzleState: null, gambler: null, gamblerBalance: null}; //the states that I care about
+  
+constructor () {
+    super();
+    this.handleGamblerChange = this.handleGamblerChange.bind(this);
+  }
 
   componentDidMount() {
     const { drizzle } = this.props;
@@ -23,6 +28,11 @@ class App extends React.Component{
         this.setState({ loading: false, drizzleState });
       }
     });
+  }
+
+  handleGamblerChange(value){
+    const g = value;
+    this.setState({ gambler : g });
   }
 
   componentWillUnmount() {
@@ -51,10 +61,12 @@ class App extends React.Component{
           <ReadString
             drizzle={this.props.drizzle}
             drizzleState={this.state.drizzleState}
+            
           />
           <SetString
             drizzle={this.props.drizzle}
             drizzleState={this.state.drizzleState}
+            handleGamblerChange = {this.handleGamblerChange}
           />
         </div>
       </section>

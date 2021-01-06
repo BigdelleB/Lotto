@@ -22,6 +22,9 @@ class SetString extends React.Component {
 
     // save the `stackId` for later reference
     this.setState({ stackId });
+
+    this.props.handleGamblerChange(value); // use the callback to set the value in App.js
+
   };
 
 

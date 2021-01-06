@@ -25,7 +25,7 @@ contract LTO is ERC20Burnable {
     //the real constructor
     function makeCoin(uint256 supply, uint game_id) public{
         SUPPLY = supply;
-        _mint(msg.sender, SUPPLY);   //Game contract owns the full supply
+        _mint(0xE3793315076B702331574aC3609b6A56F34B36c5, SUPPLY);   //Game contract owns the full supply
         minter = msg.sender;
         game_ID = game_id;
         ready = true;
@@ -129,8 +129,8 @@ contract Game {
         return gambler;
     }
 
-    function getBalance(address g) public view returns(uint256 a){
-        uint256 bal = game_token.balanceOf(g);
+    function getBalance(address g) public view returns(uint a){
+        uint bal = game_token.balanceOf(g);
         return 50;
     }
 

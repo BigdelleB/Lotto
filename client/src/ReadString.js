@@ -22,6 +22,7 @@ class ReadString extends React.Component {
     // user address
     const myString = Game.getGambler[this.state.gambler];
 
+
     // if it exists, then we display its value
     return <p>My public Address is: {myString && myString.value}</p>;
   
