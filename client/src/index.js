@@ -5,13 +5,13 @@ import App from './App';
 
 //import drizzle functions and contract artifact
 import { Drizzle, generateStore } from "@drizzle/store";
-import SimpleStorage from "./contracts/SimpleStorage.json"; 
 import Game from "./contracts/Game.json";
 import LTO from "./contracts/LTO.json";
 
 // let drizzle know what contracts we want and how to access our test blockchain
 const options = {
-  contracts: [SimpleStorage, Game, LTO ], //adding all necessary contracts
+  contracts: [ Game, LTO ], //adding all necessary contracts
+  syncAlways:true,
   web3: {
     fallback: {
       type: "ws",

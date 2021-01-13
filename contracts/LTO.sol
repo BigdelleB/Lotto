@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.21 <0.7.0;
+pragma solidity 0.5.16;//>=0.4.21 <0.7.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
 
@@ -25,7 +25,7 @@ contract LTO is ERC20Burnable {
     //the real constructor
     function makeCoin(uint256 supply, uint game_id) public{
         SUPPLY = supply;
-        _mint(0xE3793315076B702331574aC3609b6A56F34B36c5, SUPPLY);   //Game contract owns the full supply
+        _mint(msg.sender, SUPPLY);   //Game contract owns the full supply
         minter = msg.sender;
         game_ID = game_id;
         ready = true;
@@ -119,7 +119,6 @@ contract Game {
             return false;
         }
     }
-
     
     function setGambler(address g ) public{
         gambler = g;

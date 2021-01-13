@@ -9,10 +9,10 @@ import GetBalance from "./GetBalance";
 class App extends React.Component{
   state = { loading: true, drizzleState: null, gambler: null, gamblerBalance: null}; //the states that I care about
   
-constructor () {
+/*constructor () {
     super();
     this.handleGamblerChange = this.handleGamblerChange.bind(this);
-  }
+  }*/
 
   componentDidMount() {
     const { drizzle } = this.props;
@@ -25,18 +25,18 @@ constructor () {
 
       // check to see if it's ready, if so, update local component state
       if (drizzleState.drizzleStatus.initialized) {
-        this.setState({ loading: false, drizzleState });
+        this.setState({ loading: false, drizzleState});
       }
     });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   handleGamblerChange(value){
     const g = value;
     this.setState({ gambler : g });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
   }
 
   render(){
@@ -61,12 +61,11 @@ constructor () {
           <ReadString
             drizzle={this.props.drizzle}
             drizzleState={this.state.drizzleState}
-            
           />
           <SetString
             drizzle={this.props.drizzle}
             drizzleState={this.state.drizzleState}
-            handleGamblerChange = {this.handleGamblerChange}
+           // handleGamblerChange = {this.handleGamblerChange}
           />
         </div>
       </section>

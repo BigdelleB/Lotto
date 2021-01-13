@@ -17,11 +17,11 @@ class GetBalance extends React.Component{
 
 
 	  render(){
-	  	/*const { Game } = this.props.drizzleState.contracts;
+	  	const { Game } = this.props.drizzleState.contracts;
 	  	const address = this.props.gambler;
 
     	// user address
-    	const bal = Game.getBalance[address];*/
+    	const bal = Game.getBalance[address];
 	   
 	    return( <p>{100}</p>);
 	  }
